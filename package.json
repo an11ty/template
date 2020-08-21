@@ -1,0 +1,34 @@
+{
+  "name": "an11ty-default-site",
+  "version": "0.0.0",
+  "description": "Default an11ty site and configuration, with all sorts of goodies.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/saibotsivad/an11ty-default-site.git"
+  },
+  "author": {
+    "name": "Tobias Davis",
+    "email": "tobias@davistobias.com",
+    "url": "https://davistobias.com/"
+  },
+  "license": "VOL",
+  "bugs": {
+    "url": "https://github.com/saibotsivad/an11ty-default-site/issues"
+  },
+  "homepage": "https://github.com/saibotsivad/an11ty-default-site#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^0.11.0",
+    "@11ty/eleventy-navigation": "^0.1.6",
+    "@11ty/eleventy-plugin-rss": "^1.0.9",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
+    "critical": "^2.0.3",
+    "glob": "^7.1.6",
+    "glob-module-file": "^3.0.2",
+    "html-minifier": "^4.0.0",
+    "luxon": "^1.21.3",
+    "markdown-it": "^8.4.2",
+    "markdown-it-anchor": "^5.2.5",
+    "svg-sprite": "^1.5.0",
+    "vinyl": "^2.2.0"
+  }
+}
