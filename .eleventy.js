@@ -51,7 +51,7 @@ module.exports = config => {
 	config.addNunjucksAsyncShortcode('iconsprite', iconsprite)
 
 	// Asset Watch Targets
-	config.addWatchTarget('./src/assets')
+	config.addWatchTarget('./_src')
 
 	// Markdown
 	config.setLibrary(
@@ -63,16 +63,25 @@ module.exports = config => {
 			typographer: true
 		})
 	)
+	// let markdownLibrary = markdownIt({
+	// 	html: true,
+	// 	breaks: true,
+	// 	linkify: true
+	// }).use(markdownItAnchor, {
+	// 	permalink: true,
+	// 	permalinkClass: 'direct-link',
+	// 	permalinkSymbol: '#'
+	// })
+	// eleventyConfig.setLibrary('md', markdownLibrary)
 
 	// Layouts
 	config.addLayoutAlias('base', 'base.njk')
+	config.addLayoutAlias('home', 'home.njk')
 	config.addLayoutAlias('post', 'post.njk')
 
 	// Pass-through files
-	config.addPassthroughCopy('src/robots.txt')
-	config.addPassthroughCopy('src/site.webmanifest')
-	config.addPassthroughCopy('src/assets/images')
-	config.addPassthroughCopy('src/assets/fonts')
+	config.addPassthroughCopy('_src/images')
+	config.addPassthroughCopy('_src/fonts')
 
 	// Deep-Merge
 	config.setDataDeepMerge(true)
@@ -86,13 +95,13 @@ module.exports = config => {
 		mergeableBefore || {},
 		{
 			dir: {
-				input: 'src',
-				output: 'dist',
-				includes: 'includes',
-				layouts: 'layouts',
-				data: 'data'
+				input: './',
+				output: '_site',
+				includes: '_src/includes',
+				layouts: '_src/layouts',
+				data: '_data'
 			},
-			templateFormats: ['njk', 'md', '11ty.js'],
+			templateFormats: [ 'njk', 'md', '11ty.js' ],
 			htmlTemplateEngine: 'njk',
 			markdownTemplateEngine: 'njk'
 		},

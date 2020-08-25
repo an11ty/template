@@ -10,12 +10,15 @@ eleventyExcludeFromCollections: true
 	{% set absoluteUrl %}{{ metadata.feed.path | url | absoluteUrl(metadata.url) }}{% endset %}
 	<link href="{{ absoluteUrl }}" rel="self"/>
 	<link href="{{ metadata.url }}"/>
+	{%- if collections.posts.length > 0 %}
 	<updated>{{ collections.posts | rssLastUpdatedDate }}</updated>
+	{%- endif %}
 	<id>{{ metadata.feed.id }}</id>
 	<author>
 		<name>{{ metadata.author.name }}</name>
 		<email>{{ metadata.author.email }}</email>
 	</author>
+	{%- if collections.posts.length > 0 %}
 	{%- for post in collections.posts | reverse %}
 	{% set absolutePostUrl %}{{ post.url | url | absoluteUrl(metadata.url) }}{% endset %}
 	<entry>
@@ -26,4 +29,5 @@ eleventyExcludeFromCollections: true
 		<content type="html">{{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
 	</entry>
 	{%- endfor %}
+	{%- endif %}
 </feed>
