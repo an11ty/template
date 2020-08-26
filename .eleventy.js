@@ -25,6 +25,8 @@ const loadThings = folder => glob
 	}))
 
 module.exports = config => {
+	// config.setUseGitIgnore(false)
+
 	// Overrides: before
 	const mergeableBefore = possiblyLoad('./.an11ty-before.js')
 
@@ -32,26 +34,27 @@ module.exports = config => {
 	config.addPlugin(pluginRss)
 	config.addPlugin(pluginNavigation)
 
-	// Filters
+	// Auto-globbed functions. Add your own or overwrite
+	// one in the related folder and it'll get auto-added
+	// without needing to set it in `.eleventy.js`
 	for (const { key, value } of loadThings('filters')) {
 		config.addFilter(key, value)
 	}
-
-	// Transforms
 	for (const { key, value } of loadThings('transforms')) {
 		config.addTransform(key, value)
 	}
-
-	// Shortcodes
 	for (const { key, value } of loadThings('shortcodes')) {
 		config.addShortcode(key, value)
+	}
+	for (const { key, value } of loadThings('collections')) {
+		config.addCollection(key, value)
 	}
 
 	// Icon Sprite
 	config.addNunjucksAsyncShortcode('iconsprite', iconsprite)
 
 	// Asset Watch Targets
-	config.addWatchTarget('./_src')
+	// config.addWatchTarget('./_src')
 
 	// Markdown
 	config.setLibrary(
@@ -73,6 +76,23 @@ module.exports = config => {
 	// 	permalinkSymbol: '#'
 	// })
 	// eleventyConfig.setLibrary('md', markdownLibrary)
+
+	// Browsersync Overrides
+	// eleventyConfig.setBrowserSyncConfig({
+	// 	callbacks: {
+	// 		ready: (err, browserSync) => {
+	// 			const content_404 = fs.readFileSync('_site/404.html')
+
+	// 			browserSync.addMiddleware('*', (req, res) => {
+	// 				// Provides the 404 content without redirect.
+	// 				res.write(content_404)
+	// 				res.end()
+	// 			});
+	// 		},
+	// 	},
+	// 	ui: false,
+	// 	ghostMode: false
+	// })
 
 	// Layouts
 	config.addLayoutAlias('base', 'base.njk')
@@ -96,10 +116,10 @@ module.exports = config => {
 		{
 			dir: {
 				input: './',
-				output: '_site',
-				includes: '_src/includes',
-				layouts: '_src/layouts',
-				data: '_data'
+				output: './_site',
+				includes: './_src/includes',
+				layouts: './_src/layouts',
+				data: './_data'
 			},
 			templateFormats: [ 'njk', 'md', '11ty.js' ],
 			htmlTemplateEngine: 'njk',
