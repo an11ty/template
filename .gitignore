@@ -1,3 +1,4 @@
 /node_modules
 /_site
+/_src/scripts/globbed.js
 .DS_Store

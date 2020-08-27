@@ -1,4 +1,5 @@
 /node_modules
 /_site
+/_src/scripts/globbed.js
 _src/**/_README.md
 .DS_Store

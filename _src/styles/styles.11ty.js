@@ -1,4 +1,5 @@
 const fs = require('fs')
+const mkdirp = require('mkdirp')
 const path = require('path')
 const sass = require('node-sass')
 const CleanCSS = require('clean-css')
@@ -78,6 +79,7 @@ const minify = async css => new Promise((resolve, reject) => {
 		sourceMapInlineSources: true
 	}).minify(css)
 
+	mkdirp.sync(mapOutputPath)
 	fs.writeFileSync(path.join(mapOutputPath, `${OUTPUT_FILE_NAME}.map`), minified.sourceMap.toString(), 'utf8')
 
 	return minified.error
