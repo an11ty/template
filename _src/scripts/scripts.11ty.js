@@ -8,15 +8,8 @@ const webpack = require('webpack')
 const isProd = process.env.ELEVENTY_ENV === 'production'
 const mfs = new MemoryFileSystem()
 
-// main entry point name
 const ENTRY_FILE_NAME = 'main.js'
 const ENTRY_FILE_MAP_NAME = 'main.js.map'
-const OUTPUT_FILE_NAME = 'main.js'
-const entryPath = path.join(__dirname, `/${ENTRY_FILE_NAME}`)
-const outputPath = `_src/scripts/${OUTPUT_FILE_NAME}`
-const mapOutputPath = path.resolve(__dirname, '../../_site/_src/scripts/')
-
-const sourcemapFilePath = `_src/scripts/${ENTRY_FILE_MAP_NAME}`
 
 // Compile JS with Webpack, write the result to Memory Filesystem.
 // this brilliant idea is taken from Mike Riethmuller / Supermaya
@@ -26,9 +19,10 @@ const compile = async webpackConfig => {
 		format: 'es',
 		// relative to the path where the `eleventy` command is run
 		pattern: 'modules/*.js',
-		outputPath: './_src/scripts/globbed.js'
+		outputPath: './_src/scripts/globbed.js',
 	}, {
-		cwd: __dirname
+		cwd: __dirname,
+		ignore: 'modules/*.test.js'
 	})
 
 	const compiler = webpack(webpackConfig)
@@ -44,10 +38,11 @@ const compile = async webpackConfig => {
 
 			const { assets } = stats.compilation
 
+			const mapOutputPath = path.resolve(__dirname, '../../_site/_src/scripts/')
 			mkdirp.sync(mapOutputPath)
 			fs.writeFileSync(
 				path.join(mapOutputPath, ENTRY_FILE_MAP_NAME),
-				assets[sourcemapFilePath].source(),
+				assets[ENTRY_FILE_MAP_NAME].source(),
 				'utf8'
 			)
 
@@ -56,46 +51,44 @@ const compile = async webpackConfig => {
 	})
 }
 
-// Main Config
-const defaultWebpackConfig = {
-	mode: isProd ? 'production' : 'development',
-	entry: entryPath,
-	output: {
-		path: path.resolve(__dirname, '../../memory-fs/js/')
-	},
-	module: {
-		rules: [
-			{
-				test: /\.m?js$/,
-				exclude: /(node_modules|bower_components)/,
-				use: {
-					loader: 'babel-loader',
-					options: {
-						presets: [ '@babel/preset-env' ],
-						plugins: [ '@babel/plugin-transform-runtime' ]
-					}
-				}
-			}
-		]
-	},
-	plugins: [
-		new webpack.SourceMapDevToolPlugin({
-			filename: sourcemapFilePath,
-			fileContext: '../../'
-		}),
-		new webpack.EnvironmentPlugin({
-			ELEVENTY_ENV: process.env.ELEVENTY_ENV
-		})
-	]
-}
-
 module.exports = class {
-	// Configure Webpack in Here
 	async data() {
 		return {
 			permalink: `/_src/scripts/${ENTRY_FILE_NAME}`,
 			eleventyExcludeFromCollections: true,
-			webpackConfig: defaultWebpackConfig
+			webpackConfig: {
+				mode: isProd
+					? 'production'
+					: 'development',
+				entry: path.join(__dirname, `/${ENTRY_FILE_NAME}`),
+				output: {
+					path: path.resolve(__dirname, '../../memory-fs/js/')
+				},
+				module: {
+					rules: [
+						{
+							test: /\.m?js$/,
+							exclude: /(node_modules|bower_components)/,
+							use: {
+								loader: 'babel-loader',
+								options: {
+									presets: [ '@babel/preset-env' ],
+									plugins: [ '@babel/plugin-transform-runtime' ]
+								}
+							}
+						}
+					]
+				},
+				plugins: [
+					new webpack.SourceMapDevToolPlugin({
+						append: '\n//# sourceMappingURL=/_src/scripts/[url]',
+						filename: '[name].js.map'
+					}),
+					new webpack.EnvironmentPlugin({
+						ELEVENTY_ENV: process.env.ELEVENTY_ENV
+					})
+				]
+			}
 		}
 	}
 
