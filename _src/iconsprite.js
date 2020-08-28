@@ -5,8 +5,10 @@ const glob = require('glob')
 const File = require('vinyl')
 const SVGSpriter = require('svg-sprite')
 
-// TODO
-const cwd = path.resolve('src/assets/icons')
+const getFiles = util.promisify(glob)
+
+const siteData = require(path.resolve(__dirname, '../_data/metadata.js'))
+const cwd = path.resolve(__dirname, './icons')
 
 const spriteConfig = {
     mode: {
@@ -17,7 +19,7 @@ const spriteConfig = {
         }
     },
     shape: {
-        transform: ['svgo'],
+        transform: [ 'svgo' ],
         id: {
             generator: 'icon-%s'
         }
@@ -29,10 +31,11 @@ const spriteConfig = {
 }
 
 module.exports = async () => {
-    // Make a new SVGSpriter instance w/ configuration
-    const spriter = new SVGSpriter(spriteConfig)
+    if (!siteData.embeddedIcons || (Array.isArray(siteData.embeddedIcons) && !siteData.embeddedIcons.length)) {
+        return ''
+    }
 
-    // Wrap spriter compile function in a Promise
+    const spriter = new SVGSpriter(spriteConfig)
     const compileSprite = async (args) => {
         return new Promise((resolve, reject) => {
             spriter.compile(args, (error, result) => {
@@ -44,23 +47,18 @@ module.exports = async () => {
         })
     }
 
-    // Get all SVG icon files in working directory
-    const getFiles = util.promisify(glob)
-    const files = await getFiles('**/*.svg', { cwd: cwd })
+    (await getFiles('**/*.svg', { cwd }))
+        .filter(file => siteData.embeddedIcons === true || siteData.embeddedIcons.includes(file))
+        .forEach(file => {
+            spriter.add(
+                new File({
+                    path: path.join(cwd, file),
+                    base: cwd,
+                    contents: fs.readFileSync(path.join(cwd, file))
+                })
+            )
+        })
 
-    // Add them all to the spriter
-    files.forEach(function (file) {
-        spriter.add(
-            new File({
-                path: path.join(cwd, file),
-                base: cwd,
-                contents: fs.readFileSync(path.join(cwd, file))
-            })
-        )
-    })
-
-    // Compile the sprite file and return it as a string
     const sprite = await compileSprite(spriteConfig.mode)
-    const spriteContent = sprite.contents.toString('utf8')
-    return spriteContent
+    return `<div hidden>${sprite.contents.toString('utf8')}</div>`
 }
