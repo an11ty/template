@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="{{ meta.lang }}">
+<html lang="{{ metadata.lang }}">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>{{ meta.title }}</title>
+	<title>{{ metadata.title }}</title>
 
 	{% include "meta.njk" %}
 </head>
 <body>
-	<div hidden>{% iconsprite %}</div>
+	{% iconsprite %}
+
 	<a href="#main" class="sr-skip-link">skip to main content!</a>
 
 	<div class="layout" role="document">
