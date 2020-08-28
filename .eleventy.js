@@ -25,8 +25,6 @@ const loadThings = folder => glob
 	}))
 
 module.exports = config => {
-	// config.setUseGitIgnore(false)
-
 	// Overrides: before
 	const mergeableBefore = possiblyLoad('./.an11ty-before.js')
 
