@@ -1,10 +1,12 @@
-<header class="header" role="banner">
-	<div class="header__inner container">
-		<div class="header__left">
-			🎩 Eleventastic
-		</div>
-		<div class="header__right">
-			{% include "navigation.njk" %}
-		</div>
-	</div>
+<a href="#main-content">Skip to content</a>
+
+<header>
+	{% include "custom/header-before.njk" %}
+	<a href="{{ '/' | url }}">
+		<span>{{ title or metadata.title }} - Home</span>
+		<span aria-hidden="true">{{ title or metadata.title }}</span>
+	</a>
+	{% set ariaLabel = "navigation" %}
+	{% include "navigation.njk" %}
+	{% include "custom/header-after.njk" %}
 </header>

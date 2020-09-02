@@ -60,5 +60,5 @@ module.exports = async () => {
         })
 
     const sprite = await compileSprite(spriteConfig.mode)
-    return `<div hidden>${sprite.contents.toString('utf8')}</div>`
+    return '<div hidden>\n\t' + sprite.contents.toString('utf8') + '\n</div>'
 }

@@ -1,13 +1,12 @@
 ---
-# Metadata comes from _data/metadata.json
-permalink: "{{ metadata.jsonfeed.path | url }}"
+permalink: "{{ metadata.json_feed.path | url }}"
 eleventyExcludeFromCollections: true
 ---
 {
   "version": "https://jsonfeed.org/version/1",
   "title": "{{ metadata.title }}",
   "home_page_url": "{{ metadata.url }}",
-  "feed_url": "{{ metadata.jsonfeed.url }}",
+  "feed_url": "{{ metadata.json_feed.url }}",
   "description": "{{ metadata.description }}",
   "author": {
     "name": "{{ metadata.author.name }}",

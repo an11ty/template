@@ -1,6 +1,11 @@
 {%- set absolutePageUrl -%}{{ page.url | url | absoluteUrl(metadata.url) }}{%- endset -%}
 
+{% include "custom/meta-before.njk" %}
+
 {# General #}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title or metadata.title }}</title>
 <meta name="description" content="{{ description or metadata.description }}">
 <link rel="canonical" href="{{ absolutePageUrl }}">
 <link rel="stylesheet" href="{{ '/_src/styles/main.css' | url }}">
@@ -26,3 +31,5 @@
 
 {# RSS Feed #}
 <link type="application/atom+xml" rel="alternate" href="{{ metadata.url }}/feed.xml" title="{{ metadata.title }}">
+
+{% include "custom/meta-after.njk" %}

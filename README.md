@@ -41,6 +41,13 @@ module.exports = function () {
 
 
 
+---
+
+## Roadmap
+
+image resizing stuff? https://github.com/image-size/image-size
+
+
 
 ---
 

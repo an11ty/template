@@ -1,8 +1,23 @@
-<footer class="footer" role="contentinfo">
-	<div class="footer__inner container">
-		<span>&copy; copyright {{ build.timestamp | dateToFormat('yyyy') }}</span>
-		<a href="http://github.com/maxboeck/eleventastic">
-			{% icon "github" %}Eleventastic1
-		</a>
-	</div>
+<footer>
+	{% include "custom/footer-before.njk" %}
+	<p class="copyright">
+		&copy; Copyright {{ build.timestamp | dateToFormat('yyyy') }}
+	</p>
+	{% if metadata.footer_sites %}
+		<ul class="sites">
+			{% for footer_site in metadata.footer_sites %}
+				<li class="{{ footer_site.icon }}">
+					<a href="{{ footer_site.url }}">
+						{% if footer_site.icon %}
+							{% icon name = footer_site.icon %}
+						{% endif %}
+						<span class="sr-only">
+							{{ footer_site.title }}
+						</span>
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+	{% include "custom/footer-after.njk" %}
 </footer>

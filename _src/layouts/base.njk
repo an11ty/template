@@ -1,24 +1,19 @@
 <!DOCTYPE html>
 <html lang="{{ metadata.lang }}">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>{{ metadata.title }}</title>
-
 	{% include "meta.njk" %}
 </head>
 <body>
 	{% iconsprite %}
 
-	<a href="#main" class="sr-skip-link">skip to main content!</a>
+	{% block header %}
+	{% endblock %}
 
-	<div class="layout" role="document">
-		{% include "header.njk" %}
-		<main id="main" class="main" tabindex="-1">
-			{{ content | safe }}
-		</main>
-		{% include "footer.njk" %}
-	</div>
+	{% block section %}
+	{% endblock %}
+
+	{% block footer %}
+	{% endblock %}
 
 	<script type="text/javascript" src="{{ '/_src/scripts/main.js' | url }}"></script>
 </body>

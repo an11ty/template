@@ -10,13 +10,34 @@ module.exports = {
 		url: 'https://example.com/about-me/'
 	},
 
+	// Third-party site usernames.
+	footer_sites: [
+		{
+			icon: 'github',
+			title: 'GitHub',
+			url: 'https://github.com/saibotsivad/'
+		},{
+			icon: 'linkedin',
+			title: 'LinkedIn',
+			url: 'https://www.linkedin.com/in/saibotsivad/'
+		},{
+			icon: 'npmjs',
+			title: 'npmjs',
+			url: 'https://www.npmjs.com/~saibotsivad'
+		},{
+			icon: 'keybase',
+			title: 'Keybase',
+			url: 'https://keybase.io/saibotsivad'
+		}
+	],
+
 	feed: {
 		subtitle: 'I am writing about my experiences as a naval navel-gazer.',
 		filename: 'feed.xml',
 		path: '/feed/feed.xml',
 		id: 'https://example.com/'
 	},
-	jsonfeed: {
+	json_feed: {
 		path: '/feed/feed.json',
 		url: 'https://example.com/feed/feed.json'
 	},
