@@ -1,0 +1,17 @@
+// Colors
+//
+// Grayscale.
+$gray-darkest: #373a3c;
+$gray-dark: #55595c;
+$gray: #818a91;
+$gray-light: #eceeef;
+$gray-lightest: #f7f7f9;
+
+// Brand Colors
+$brand-red: #fc6767;
+
+// Color Mappings
+$bg-color: #fff;
+$text-color: $gray-darkest;
+$brand-color-primary: $brand-red;
+$brand-color-primary-offset: darken($brand-red, 6%);

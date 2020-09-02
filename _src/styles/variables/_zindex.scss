@@ -1,0 +1,8 @@
+// Z-Index Stack
+//
+// Control the order of layers in the application
+$z-layers: (
+    'modal': 999,
+    'nav': 100,
+    'content-overlay': 30
+);

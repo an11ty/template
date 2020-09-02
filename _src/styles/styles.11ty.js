@@ -1,4 +1,6 @@
+const { promisify } = require('util')
 const fs = require('fs')
+const glob = promisify(require('glob'))
 const mkdirp = require('mkdirp')
 const path = require('path')
 const sass = require('node-sass')
@@ -13,6 +15,23 @@ const OUTPUT_FILE_NAME = 'main.css'
 const entryPath = path.join(__dirname, `/${ENTRY_FILE_NAME}`)
 const outputPath = `_src/styles/${OUTPUT_FILE_NAME}`
 const mapOutputPath = path.resolve(__dirname, '../../_site/_src/styles/')
+
+const mainTemplate = files => `
+// This is an auto-generated file, do not edit it.
+// Look at the _README.md file next to it for details.
+
+// Variables are imported first:
+${(files.variables || []).map(file => `@import 'variables/${file}';`).join('\n')}
+
+// Then any utilities:
+${(files.utilities || []).map(file => `@import 'utilities/${file}';`).join('\n')}
+
+// Base modules are ones that have global scope.
+${(files.base || []).map(file => `@import 'base/${file}';`).join('\n')}
+
+// Component modules are scoped to a component.
+${(files.components || []).map(file => `@import 'components/${file}';`).join('\n')}
+`
 
 // display an error overlay when CSS build fails.
 // this brilliant idea is taken from Mike Riethmuller / Supermaya
@@ -97,6 +116,24 @@ module.exports = class {
 	}
 	async render({ entryPath }) {
 		try {
+			const scssFiles = await glob('*/*.scss', {
+				cwd: path.join(__dirname)
+			})
+			const scssMain = mainTemplate(
+				scssFiles
+					.reduce((files, file) => {
+						const [ key, filename ] = file.split('/')
+						files[key] = files[key] || []
+						files[key].push(
+							filename
+								.replace('.scss', '')
+								.replace(/^_/, '')
+						)
+						return files
+					}, {})
+			)
+			fs.writeFileSync(path.join(__dirname, ENTRY_FILE_NAME), scssMain, 'utf8')
+
 			const css = await compile({
 				file: entryPath
 			})
