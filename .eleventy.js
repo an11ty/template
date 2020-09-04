@@ -52,7 +52,14 @@ module.exports = config => {
 	config.addNunjucksAsyncShortcode('iconsprite', iconsprite)
 
 	// Asset Watch Targets
-	// config.addWatchTarget('./_src')
+	// NOTE: It would be cooler if you could pass glob syntax
+	// to the `addWatchTarget` function, but that does not
+	// appear to be possible at this point.
+	glob
+		.sync('./_src/styles/*/*.scss')
+		.forEach(file => {
+			config.addWatchTarget(file)
+		})
 
 	// Markdown
 	config.setLibrary(

@@ -1,9 +1,13 @@
-.header {
-    padding: $spacing-y 0;
+header {
+	background-color: $brand-color-primary;
+	padding: $spacing-y 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 
-    &__inner {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+	nav ul {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
 }

@@ -2,7 +2,7 @@
 layout: page
 title: Example Page
 eleventyNavigation:
-  key: Example Yolo
+  key: Example Page
   order: 1
 ---
 

@@ -1,17 +1,28 @@
-// Colors
-//
-// Grayscale.
+// Brand and site colors are set here as SCSS variables, so
+// that we can use Sass functions to auto generate skewed
+// colors from them.
+// --------------------------------------------------------
+
+// Set your gray scaling:
 $gray-darkest: #373a3c;
 $gray-dark: #55595c;
 $gray: #818a91;
 $gray-light: #eceeef;
 $gray-lightest: #f7f7f9;
 
-// Brand Colors
-$brand-red: #fc6767;
+// Pick your exact brand colors:
+$brand-red: #f13c20;
+$brand-blue: #4056a1;
+$brand-blue-light: #c5cbe3;
+$brand-gold: #d79922;
+$brand-white: #efe2ba;
 
-// Color Mappings
+// Then map those brand colors to the primary design elements:
 $bg-color: #fff;
 $text-color: $gray-darkest;
-$brand-color-primary: $brand-red;
-$brand-color-primary-offset: darken($brand-red, 6%);
+$brand-color-primary: $brand-gold;
+
+// These are auto-generated color skews, you probably won't
+// need to change them. If you do, be sure to make sure the
+// color contrasts are within safe accessibility ranges.
+$brand-color-primary-offset: darken($brand-color-primary, 6%);

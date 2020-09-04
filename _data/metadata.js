@@ -9,8 +9,9 @@ module.exports = {
 		email: 'youremailaddress@example.com',
 		url: 'https://example.com/about-me/'
 	},
+	bannerLogo: '/_src/images/favicon/favicon-192x192.png',
 
-	// Third-party site usernames.
+	// Third-party site usernames
 	footer_sites: [
 		{
 			icon: 'github',
