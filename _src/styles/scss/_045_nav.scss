@@ -1,0 +1,19 @@
+nav {
+	a {
+		font-weight: 400;
+	}
+
+	a:hover {
+		text-decoration: underline;
+	}
+
+	ul {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	li {
+		padding: 0 $spacing-x / 2;
+	}
+}

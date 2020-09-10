@@ -1,0 +1,23 @@
+.mobile-only {
+	@include mq(md) {
+		display: none !important;
+	}
+}
+
+.tablet-only {
+	@include mq(lg) {
+		display: none !important;
+	}
+}
+
+.desktop-only {
+	@include mq-down(lg) {
+		display: none !important;
+	}
+}
+
+.print-only {
+	@media not print {
+		display: none !important;
+	}
+}

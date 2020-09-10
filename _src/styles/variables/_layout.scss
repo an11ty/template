@@ -1,0 +1,18 @@
+// Define the layout breakpoint dimensions, which are the
+// widths at which your layout will change to adapt to
+// different screen sizes.
+$breakpoints: (
+	md: 670px,
+	lg: 940px,
+	xl: 1260px
+);
+
+// Maximum width of the overall text-containing area, to
+// prevent overly wide text reading areas. In general, the
+// maximum width should be 70-100 characters.
+$container-max-width: 50rem;
+
+// The spacing values here are used between major elements.
+// If you want more or less visual space, try adjusting these.
+$spacing-x: 2rem;
+$spacing-y: 2rem;

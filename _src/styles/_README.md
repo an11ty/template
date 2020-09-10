@@ -11,6 +11,8 @@ The files are auto-globbed in this order:
 	layout styles.
 * `components` Styles that are scoped to components, like article figures.
 
+The eleventy watcher will auto-update for any file changes, but if you add a new file you will need to restart it.
+
 ```css
 body {
 	font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';

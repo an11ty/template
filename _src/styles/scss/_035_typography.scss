@@ -1,0 +1,76 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	margin-bottom: $font-size-base * 1.2;
+	line-height: $line-height;
+	text-rendering: optimizeLegibility;
+	font-weight: 700;
+}
+
+h1 {
+	font-size: $font-size-base * 2.1;
+	font-weight: 500;
+}
+
+h2 {
+	font-size: $font-size-base * 1.7;
+	font-weight: 600;
+}
+
+h2, h4, h6 {
+	font-style: italic;
+}
+
+p {
+	margin: 0;
+	margin-bottom: $font-size-base * 1.2;
+}
+
+
+// stuff from elsewhere
+
+// a {
+// 	color: $primary;
+// 	text-decoration: none;
+// 	&:hover {
+// 		text-decoration: underline;
+// 	}
+// }
+
+// small {
+// 	color: $site-text-grey;
+// }
+
+// hr {
+// 	border-bottom: 1px solid $site-text;
+// }
+
+// /* width */
+// ::-webkit-scrollbar {
+// 	width: 10px;
+// }
+
+// /* Handle */
+// ::-webkit-scrollbar-thumb {
+// 	// background: #888; 
+// 	background: $site-text-grey;
+// }
+
+// /* Handle on hover */
+// ::-webkit-scrollbar-thumb:hover {
+// 	background: $primary;
+// }
+
+// figcaption {
+// 	color: $site-text-grey;
+// 	margin-top: bs(0.5);
+// 	font-size: 80%;
+// }
+
+// dt {
+// 	font-weight: 600;
+// }

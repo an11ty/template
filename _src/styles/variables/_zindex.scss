@@ -1,8 +1,9 @@
-// Z-Index Stack
-//
-// Control the order of layers in the application
+// Putting all z-index references together in one file
+// makes it easier to see the interplay between them,
+// possibly even realizing that you don't need to specify
+// an index at all!
 $z-layers: (
-    'modal': 999,
-    'nav': 100,
-    'content-overlay': 30
+	'modal': 999,
+	'nav': 100,
+	'content-overlay': 30
 );

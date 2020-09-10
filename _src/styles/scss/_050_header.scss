@@ -1,0 +1,20 @@
+header {
+	margin-bottom: $spacing-y / 2;
+
+	.container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	a {
+		text-decoration: none;
+		color: $text-color;
+	}
+
+	img {
+		height: $spacing-y * 2;
+		width: $spacing-y * 2;
+		margin-right: $spacing-x / 2;
+	}
+}

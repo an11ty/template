@@ -1,10 +1,9 @@
 // Brand and site colors are set here as SCSS variables, so
 // that we can use Sass functions to auto generate skewed
 // colors from them.
-// --------------------------------------------------------
 
-// Set your gray scaling:
-$gray-darkest: #373a3c;
+// Set your gray-scale:
+$gray-darkest: #242424;
 $gray-dark: #55595c;
 $gray: #818a91;
 $gray-light: #eceeef;
@@ -18,7 +17,7 @@ $brand-gold: #d79922;
 $brand-white: #efe2ba;
 
 // Then map those brand colors to the primary design elements:
-$bg-color: #fff;
+$bg-color: $brand-white;
 $text-color: $gray-darkest;
 $brand-color-primary: $brand-gold;
 

@@ -1,0 +1,23 @@
+article .title {
+	background-color: $brand-color-primary;
+	margin-bottom: $spacing-y;
+
+	.container {
+		padding: $spacing-y / 2 0;
+	}
+	h1 {
+		margin-bottom: 0;
+	}
+	h2 {
+		font-size: $font-size-base * 1.2;
+		font-weight: 400;
+	}
+	p {
+		margin-bottom: 0;
+	}
+	.prefix {
+		font-weight: 100;
+		font-style: italic;
+		font-size: $font-size-base * 0.8;
+	}
+}

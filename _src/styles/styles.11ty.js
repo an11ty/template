@@ -26,11 +26,8 @@ ${(files.variables || []).map(file => `@import 'variables/${file}';`).join('\n')
 // Then any utilities:
 ${(files.utilities || []).map(file => `@import 'utilities/${file}';`).join('\n')}
 
-// Base modules are ones that have global scope.
-${(files.base || []).map(file => `@import 'base/${file}';`).join('\n')}
-
-// Component modules are scoped to a component.
-${(files.components || []).map(file => `@import 'components/${file}';`).join('\n')}
+// After that, the rest of the styles:
+${(files.scss || []).map(file => `@import 'scss/${file}';`).join('\n')}
 `
 
 // display an error overlay when CSS build fails.
