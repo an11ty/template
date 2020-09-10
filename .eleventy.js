@@ -103,6 +103,7 @@ module.exports = config => {
 	// Layouts
 	config.addLayoutAlias('base', 'base.njk')
 	config.addLayoutAlias('home', 'home.njk')
+	config.addLayoutAlias('page', 'page.njk')
 	config.addLayoutAlias('post', 'post.njk')
 
 	// Pass-through files
