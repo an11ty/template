@@ -1,8 +1,8 @@
-# An 11ty Default Site
+# An11ty Default Site
 
-This is the site used by [an11ty](https://www.npmjs.com/package/an11ty) as the default template, if you haven't specified one.
+This is the site used by [An11ty](https://www.npmjs.com/package/an11ty) as the default template, if you haven't specified one.
 
-The behaviour of `an11ty` is to overwrite template files with your files, instead of merging them. This default site has a lot of functionality packed in, and you can extend it many ways without needing to overwrite files.
+The behaviour of `an11ty` is to overwrite template files with your files, instead of merging them. This default site has a lot of functionality packed in, and you can extend it in many ways without needing to overwrite files.
 
 ## Extending `.eleventy.js`
 
@@ -127,3 +127,10 @@ DEBUG=* npx eleventy
   * `_includes/layouts/home.njk`: the home page template (wrapped into `base.njk`)
   * `_includes/layouts/post.njk`: the blog post template (wrapped into `base.njk`)
 * `_includes/postlist.njk` is a Nunjucks include and is a reusable component used to display a list of all the posts. `index.njk` has an example of how to use it.
+
+
+
+
+## Credits
+
+Highly inspired by https://github.com/hankchizljaw/hylia

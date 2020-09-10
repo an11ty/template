@@ -1,0 +1,25 @@
+{#
+
+The outro component is a full-width background shown after a page
+or post, before the main footer. It is used to hold things like tag
+lists or "Contact Me" form elements.
+
+#}
+
+<div class="outro">
+	<div class="container">
+		<p>
+			<a href="{{ page.url | url }}">Permalink</a>
+		</p>
+		{% if tags %}
+			<span>
+				Filed under:
+			</span>
+			<ul>
+				{% for tag in tags %}
+					<li>{{ tag }}</li>
+				{% endfor %}
+			</p>
+		{% endif %}
+	</div>
+</div>

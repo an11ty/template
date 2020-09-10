@@ -1,6 +1,6 @@
 <nav role="navigation" tabindex="-1">
 
-	{# Nav Links #}
+	{# Navigation Links #}
 	<ul>
 	{%- for item in collections.all | eleventyNavigation -%}
 		{%- set isCurrent = (item.url == page.url) -%}

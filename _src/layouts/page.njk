@@ -5,11 +5,17 @@
 {% endblock %}
 
 {% block section %}
-	<section id="main-content">
+	<section id="main">
 		<article>
-			{% include "custom/section-before.njk" %}
-			{{ content | safe }}
-			{% include "custom/section-after.njk" %}
+			{% include "title.njk" %}
+			<div class="container">
+				{% include "custom/section-before.njk" %}
+				{{ content | safe }}
+				{% include "custom/section-after.njk" %}
+			</div>
+			{% include "custom/outro-before.njk" %}
+			{% include "outro.njk" %}
+			{% include "custom/outro-after.njk" %}
 		</article>
 	</section>
 {% endblock %}

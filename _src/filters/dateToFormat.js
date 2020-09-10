@@ -1,12 +1,5 @@
 const { DateTime } = require('luxon')
+const parseDate = require('./shared/parseDate.js')
 
-const DATE_NUM = /^\d{13}$/
-
-module.exports = (date, format) => DateTime
-	.fromJSDate(
-		typeof date === 'string'
-			? new Date(DATE_NUM.test(date) ? parseInt(date, 10) : date)
-			: date,
-		{ zone: 'utc' }
-	)
+module.exports = (date, format) => parseDate(date)
 	.toFormat(String(format))

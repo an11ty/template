@@ -1,19 +1,21 @@
-<a href="#main-content" class="sr-only">
+<a href="#main" class="sr-only">
 	Skip to content
 </a>
 
 <header>
-	{% include "custom/header-before.njk" %}
+	<div class="container">
+		{% include "custom/header-before.njk" %}
 
-	{# Site Logo plus Site Title as home link #}
-	<a href="{{ '/' | url }}">
-		{% if metadata.bannerLogo %}
-			<img src="{{ metadata.bannerLogo | url }}" alt="Site logo image">
-		{% endif %}
-		<span>{{ metadata.title }}</span>
-	</a>
-	{% set ariaLabel = "navigation" %}
-	{% include "navigation.njk" %}
+		{# Site Logo plus Site Title as home link #}
+		<a href="{{ '/' | url }}">
+			{% if metadata.bannerLogo %}
+				<img src="{{ metadata.bannerLogo | url }}" alt="Logo">
+			{% endif %}
+			<span>{{ metadata.title }}</span>
+		</a>
+		{% set ariaLabel = "navigation" %}
+		{% include "navigation.njk" %}
 
-	{% include "custom/header-after.njk" %}
+		{% include "custom/header-after.njk" %}
+	</div>
 </header>

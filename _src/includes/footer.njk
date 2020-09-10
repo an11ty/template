@@ -1,23 +1,31 @@
 <footer>
-	{% include "custom/footer-before.njk" %}
-	<p class="copyright">
-		&copy; Copyright {{ build.timestamp | dateToFormat('yyyy') }}
-	</p>
-	{% if metadata.footer_sites %}
-		<ul class="sites">
-			{% for footer_site in metadata.footer_sites %}
-				<li class="{{ footer_site.icon }}">
-					<a href="{{ footer_site.url }}">
-						{% if footer_site.icon %}
-							{% icon name = footer_site.icon %}
-						{% endif %}
-						<span class="sr-only">
+	<div class="container">
+		{% include "custom/footer-before.njk" %}
+		<p class="copyright">
+			{{ metadata.title }}
+			&copy;
+			Copyright
+			{{ build.timestamp | dateToFormat('yyyy') }}
+		</p>
+		{% if metadata.description %}
+			<p class="description">
+				{{ metadata.description }}
+			</p>
+		{% endif %}
+		{% if metadata.footer_sites %}
+			<ul class="sites">
+				{% for footer_site in metadata.footer_sites %}
+					<li class="{{ footer_site.icon }}">
+						<a href="{{ footer_site.url }}">
+							{% if footer_site.icon %}
+								{% icon name = footer_site.icon %}
+							{% endif %}
 							{{ footer_site.title }}
-						</span>
-					</a>
-				</li>
-			{% endfor %}
-		</ul>
-	{% endif %}
-	{% include "custom/footer-after.njk" %}
+						</a>
+					</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+		{% include "custom/footer-after.njk" %}
+	</div> 
 </footer>

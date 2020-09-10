@@ -1,0 +1,40 @@
+{#
+
+The title component is a full-width background, which defaults
+to the primary brand color, but will use a background image if
+one is set in the frontmatter of the generating file.
+
+#}
+
+<div class="title">
+	<div class="container">
+		<h1>
+			{{ title }}
+		</h1>
+		{% if subtitle %}
+			<h2>
+				{{ subtitle }}
+			</h2>
+		{% endif %}
+		{% if author %}
+			<p class="author">
+				<span class="prefix">
+					Written by
+				</span>
+				<span class="author">
+					{{ author }}
+				</span>
+			</p>
+		{% endif %}
+		{% if published %}
+			<p class="date">
+				<span class="prefix">
+					Published
+				</span>
+				<span class="date">
+					{{ published | dateToLocale('DATE_MED') }}
+				</span>
+			</p>
+		{% endif %}
+	</div>
+</div>
