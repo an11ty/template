@@ -4,6 +4,18 @@
 	{% include "header.njk" %}
 {% endblock %}
 
+<div id="ummmm-what-to-do-here" style="display: none;">
+	<h1>Latest 3 Posts</h1>
+
+	{% if collections.posts %}
+		{% set postslist = collections.posts | head(-3) %}
+		{% set postslistCounter = collections.posts | length %}
+		{% include "postslist.njk" %}
+	{% endif %}
+
+	<p>More posts can be found in <a href="{{ '/posts/' | url }}">the archive</a>.</p>
+</div>
+
 {% block section %}
 	<section id="main-content">
 		<article>
