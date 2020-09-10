@@ -26,7 +26,8 @@ const loadThings = folder => glob
 
 module.exports = config => {
 	// Overrides: before
-	const mergeableBefore = possiblyLoad('./.an11ty-before.js')
+	const an11tyBefore = possiblyLoad('./.an11ty-before.js')
+	const mergeableBefore = an11tyBefore && an11tyBefore(config)
 
 	// Plugins
 	config.addPlugin(pluginRss)
@@ -112,7 +113,8 @@ module.exports = config => {
 	config.setDataDeepMerge(true)
 
 	// Overrides: after
-	const mergeableAfter = possiblyLoad('./.an11ty.js')
+	const an11tyAfter = possiblyLoad('./.an11ty.js')
+	const mergeableAfter = an11tyAfter && an11tyAfter(config)
 
 	// Base Config with overrides
 	return Object.assign(
