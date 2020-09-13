@@ -1,10 +1,10 @@
 {
-  "name": "an11ty-default-site",
+  "name": "an11ty-template",
   "version": "0.0.1",
   "description": "Default an11ty site and configuration, with all sorts of goodies.",
   "repository": {
     "type": "git",
-    "url": "git://github.com/saibotsivad/an11ty-default-site.git"
+    "url": "git://github.com/saibotsivad/an11ty-template.git"
   },
   "author": {
     "name": "Tobias Davis",
@@ -13,9 +13,9 @@
   },
   "license": "VOL",
   "bugs": {
-    "url": "https://github.com/saibotsivad/an11ty-default-site/issues"
+    "url": "https://github.com/saibotsivad/an11ty-template/issues"
   },
-  "homepage": "https://github.com/saibotsivad/an11ty-default-site#readme",
+  "homepage": "https://github.com/saibotsivad/an11ty-template#readme",
   "dependencies": {
     "@11ty/eleventy": "^0.11.0",
     "@11ty/eleventy-navigation": "^0.1.6",

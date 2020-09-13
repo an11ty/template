@@ -1,6 +1,6 @@
-# An11ty Default Site
+# An11ty Template
 
-This is the site used by [An11ty](https://www.npmjs.com/package/an11ty) as the default template, if you haven't specified one.
+This is the default template used by [An11ty](https://www.npmjs.com/package/an11ty).
 
 The behaviour of `an11ty` is to overwrite template files with your files, instead of merging them. This default site has a lot of functionality packed in, and you can extend it in many ways without needing to overwrite files.
 
