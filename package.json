@@ -1,6 +1,6 @@
 {
   "name": "an11ty-template",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Default an11ty site and configuration, with all sorts of goodies.",
   "repository": {
     "type": "git",
