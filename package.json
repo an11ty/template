@@ -6,6 +6,7 @@
     "type": "git",
     "url": "git://github.com/saibotsivad/an11ty-template.git"
   },
+  "main": "index.md",
   "author": {
     "name": "Tobias Davis",
     "email": "tobias@davistobias.com",
