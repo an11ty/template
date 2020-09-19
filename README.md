@@ -1,8 +1,8 @@
 # An11ty Template
 
-This is the default template used by [An11ty](https://www.npmjs.com/package/an11ty).
+This is the default template recommended by [An11ty](https://www.npmjs.com/package/an11ty).
 
-The behaviour of `an11ty` is to overwrite template files with your files, instead of merging them. This default site has a lot of functionality packed in, and you can extend it in many ways without needing to overwrite files.
+The behaviour of `an11ty` is to overwrite template files with your files, instead of merging them. That can be a bit of a hassle if you aren't careful, so this default site has a lot of functionality packed in that you can extend it in many ways without needing to overwrite files.
 
 ## Extending `.eleventy.js`
 
@@ -33,6 +33,10 @@ module.exports = function () {
 	};
 };
 ```
+
+
+
+
 
 
 
