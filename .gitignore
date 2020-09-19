@@ -1,5 +1,2 @@
 /node_modules
-/_site
-/_src/scripts/globbed.js
-/_src/styles/main.scss
 .DS_Store
