@@ -14,12 +14,12 @@ const ENTRY_FILE_MAP_NAME = 'main.js.map'
 // Compile JS with Webpack, write the result to Memory Filesystem.
 // this brilliant idea is taken from Mike Riethmuller / Supermaya
 // @see https://github.com/MadeByMike/supermaya/blob/master/site/utils/compile-webpack.js
-const compile = async webpackConfig => {
+const compile = async (webpackConfig, outputDirectory) => {
 	await globModuleFile({
 		format: 'es',
 		// relative to the path where the `eleventy` command is run
 		pattern: 'modules/*.js',
-		outputPath: './_src/scripts/globbed.js',
+		outputPath: path.resolve(path.join(__dirname, 'globbed.js')),
 	}, {
 		cwd: __dirname,
 		ignore: 'modules/*.test.js'
@@ -38,10 +38,9 @@ const compile = async webpackConfig => {
 
 			const { assets } = stats.compilation
 
-			const mapOutputPath = path.resolve(__dirname, '../../_site/_src/scripts/')
-			mkdirp.sync(mapOutputPath)
+			mkdirp.sync(outputDirectory)
 			fs.writeFileSync(
-				path.join(mapOutputPath, ENTRY_FILE_MAP_NAME),
+				path.join(outputDirectory, ENTRY_FILE_MAP_NAME),
 				assets[ENTRY_FILE_MAP_NAME].source(),
 				'utf8'
 			)
@@ -95,7 +94,7 @@ module.exports = class {
 	// render the JS file
 	async render({ webpackConfig }) {
 		try {
-			return await compile(webpackConfig)
+			return await compile(webpackConfig, path.dirname(this.page.outputPath))
 		} catch (err) {
 			return null
 		}
