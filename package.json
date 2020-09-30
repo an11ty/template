@@ -6,7 +6,6 @@
     "type": "git",
     "url": "git://github.com/an11ty/template.git"
   },
-  "main": "index.md",
   "author": {
     "name": "Tobias Davis",
     "email": "tobias@davistobias.com",
