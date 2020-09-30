@@ -8,6 +8,7 @@ $gray-dark: #55595c;
 $gray: #818a91;
 $gray-light: #eceeef;
 $gray-lightest: #f7f7f9;
+$sharp-white: #ffffff;
 
 // Pick your exact brand colors:
 $brand-red: #f13c20;
@@ -18,6 +19,7 @@ $brand-white: #efe2ba;
 
 // Then map those brand colors to the primary design elements:
 $bg-color: $brand-white;
+$bg-color-code: $sharp-white;
 $text-color: $gray-darkest;
 $brand-color-primary: $brand-gold;
 

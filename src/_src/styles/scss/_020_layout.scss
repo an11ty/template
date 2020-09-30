@@ -8,3 +8,15 @@ body {
 	width: 90%;
 	max-width: $container-max-width;
 }
+
+
+
+iframe.an11ty-video {
+	width: 100%;
+	height: 30rem;
+	margin-bottom: $font-size-base;
+}
+
+img {
+	width: 100%;
+}

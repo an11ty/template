@@ -4,11 +4,22 @@ h3,
 h4,
 h5,
 h6 {
-	margin: 0;
-	margin-bottom: $font-size-base * 1.2;
+	margin: 0 0 ($font-size-base * 1.2) 0;
 	line-height: $line-height;
 	text-rendering: optimizeLegibility;
 	font-weight: 700;
+	border-bottom: 1px solid $brand-color-primary;
+}
+
+article > .container {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		padding-top: $font-size-base * 1.5;
+	}
 }
 
 h1 {
@@ -25,11 +36,50 @@ h2, h4, h6 {
 	font-style: italic;
 }
 
+h4, h5, h6 {
+	margin-bottom: $font-size-base;
+}
+
 p {
 	margin: 0;
 	margin-bottom: $font-size-base * 1.2;
 }
 
+code {
+	padding: 0.2em 0.2em 0.1em 0.2em;
+}
+
+pre {
+	background-color: $bg-color-code;
+	font-size: $font-size-base * 0.9;
+	padding: $font-size-base;
+	margin-bottom: $font-size-base;
+	border-left: 4px solid $brand-color-primary;
+}
+
+blockquote {
+	font-style: italic;
+	font-size: $font-size-base * 1.1;
+	margin: 0 0 ($font-size-base * 1.2) 0;
+	padding: $font-size-base 0 $font-size-base ($font-size-base * 1.5);
+	border-left: 4px solid $brand-color-primary;
+	p:last-child {
+		margin-bottom: 0;
+	}
+	em {
+		font-style: normal;
+	}
+}
+
+ul {
+	margin-bottom: $font-size-base;
+}
+
+hr {
+	margin: $font-size-base * 3 auto;
+	width: 50%;
+	color: $brand-color-primary;
+}
 
 // stuff from elsewhere
 
