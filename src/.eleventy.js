@@ -1,3 +1,4 @@
+const { renderExampleContent } = require('./_data/metadata.js')
 const glob = require('glob')
 const markdownIt = require('markdown-it')
 const path = require('path')
@@ -109,6 +110,9 @@ module.exports = config => {
 	// Pass-through files
 	config.addPassthroughCopy('_src/images')
 	config.addPassthroughCopy('_src/fonts')
+	if (renderExampleContent) {
+		config.addPassthroughCopy('_src/_examples/media')
+	}
 
 	// Deep-Merge
 	config.setDataDeepMerge(true)

@@ -11,6 +11,11 @@ module.exports = {
 	},
 	bannerLogo: '/_src/images/favicon/favicon-192x192.png',
 
+	// This template comes with a few example pages, as well as
+	// some example media files. If you remove this line, the
+	// media files won't be processed.
+	renderExampleContent: true,
+
 	// Third-party site usernames
 	footer_sites: [
 		{
