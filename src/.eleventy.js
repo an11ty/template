@@ -1,6 +1,8 @@
-const { renderExampleContent } = require('./_data/metadata.js')
+const { markdownConfiguration, renderExampleContent } = require('./_data/metadata.js')
 const glob = require('glob')
 const markdownIt = require('markdown-it')
+const markdownItAnchor = require('markdown-it-anchor')
+const markdownItFootnote = require('@gerhobbelt/markdown-it-footnote')
 const path = require('path')
 const pluginRss = require('@11ty/eleventy-plugin-rss')
 const pluginNavigation = require('@11ty/eleventy-navigation')
@@ -29,6 +31,11 @@ module.exports = config => {
 	// Overrides: before
 	const an11tyBefore = possiblyLoad('./.an11ty-before.js')
 	const mergeableBefore = an11tyBefore && an11tyBefore(config)
+
+	// Lots of stuff happens, with some overlaps
+	// that possibly trigger 11ty watchers, so we
+	// add a little delay to handle those things.
+	config.setWatchThrottleWaitTime(300)
 
 	// Plugins
 	config.addPlugin(pluginRss)
@@ -64,42 +71,21 @@ module.exports = config => {
 		})
 
 	// Markdown
-	config.setLibrary(
-		'md',
-		markdownIt({
+	const markdownLibrary = markdownIt(
+		Object.assign({
 			html: true,
-			breaks: true,
+			breaks: false,
 			linkify: true,
 			typographer: true
-		})
+		}, markdownConfiguration || {})
 	)
-	// let markdownLibrary = markdownIt({
-	// 	html: true,
-	// 	breaks: true,
-	// 	linkify: true
-	// }).use(markdownItAnchor, {
-	// 	permalink: true,
-	// 	permalinkClass: 'direct-link',
-	// 	permalinkSymbol: '#'
-	// })
-	// eleventyConfig.setLibrary('md', markdownLibrary)
-
-	// Browsersync Overrides
-	// eleventyConfig.setBrowserSyncConfig({
-	// 	callbacks: {
-	// 		ready: (err, browserSync) => {
-	// 			const content_404 = fs.readFileSync('_site/404.html')
-
-	// 			browserSync.addMiddleware('*', (req, res) => {
-	// 				// Provides the 404 content without redirect.
-	// 				res.write(content_404)
-	// 				res.end()
-	// 			});
-	// 		},
-	// 	},
-	// 	ui: false,
-	// 	ghostMode: false
-	// })
+	.use(markdownItAnchor, {
+		permalink: true,
+		permalinkClass: 'direct-link',
+		permalinkSymbol: '#'
+	})
+	.use(markdownItFootnote)
+	config.setLibrary('md', markdownLibrary)
 
 	// Layouts
 	config.addLayoutAlias('base', 'base.njk')
