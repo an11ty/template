@@ -14,9 +14,17 @@ tags:
   - bazz
 ---
 
-This is a post to demonstrate how all the styles and layout sections look with the default `@an11ty/template` tempalate.
+This is a post to demonstrate how all the styles and layout sections look with the default `@an11ty/template` template.
 
-First let's show some of the more interesting components.
+There's some lorem ipsum to give you a sense of how a normal post might look, then after that there are sections for each notable component.
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.
+
+Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis. Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.
+
+Praesent dapibus, neque id cursus faucibus, tortor neque egestas auguae, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.
+
+Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.
 
 ## Code Blocks
 
