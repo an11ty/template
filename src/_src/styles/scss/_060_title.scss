@@ -1,9 +1,6 @@
 article .title {
-	background-color: $brand-color-primary;
-	margin-bottom: $spacing-y;
-
 	.container {
-		padding: $spacing-y / 2 0;
+		padding: ($spacing-y / 2) 0;
 	}
 	h1 {
 		margin-bottom: 0;

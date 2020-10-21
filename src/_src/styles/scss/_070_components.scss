@@ -1,0 +1,16 @@
+.primary-bar {
+	background-color: $brand-color-primary;
+	margin-bottom: $spacing-y;
+	a {
+		color: $brand-color-primary-link-color;
+	}
+	a:hover {
+		color: $brand-color-primary-link-color-offset;
+	}
+}
+
+iframe.an11ty-video {
+	width: 100%;
+	height: 30rem;
+	margin-bottom: $font-size-base;
+}

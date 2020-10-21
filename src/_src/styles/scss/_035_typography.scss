@@ -1,3 +1,18 @@
+// @font-face {
+// 	font-family: 'Noe Display';
+// 	font-style: normal;
+// 	font-display: swap;
+// 	font-weight: 400;
+// 	src: local('Noe Display'), local('NoeDisplay-Regular'),
+// 		url('/assets/fonts/noe-display-regular.woff2') format('woff2'),
+// 		url('/assets/fonts/noe-display-regular.woff') format('woff');
+// }
+
+body {
+	font-size: $font-size-base;
+	line-height: $line-height;
+}
+
 h1,
 h2,
 h3,
@@ -55,6 +70,7 @@ pre {
 	padding: $font-size-base;
 	margin-bottom: $font-size-base;
 	border-left: 4px solid $brand-color-primary;
+	overflow-x: scroll;
 }
 
 blockquote {
@@ -80,6 +96,21 @@ hr {
 	width: 50%;
 	color: $brand-color-primary;
 }
+
+hr.footnotes-sep {
+	width: 100%;
+}
+
+a {
+	color: $link-color;
+	&:hover {
+		color: $link-color-offset;
+	}
+}
+
+
+
+
 
 // stuff from elsewhere
 

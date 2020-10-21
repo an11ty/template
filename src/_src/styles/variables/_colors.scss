@@ -3,6 +3,7 @@
 // colors from them.
 
 // Set your gray-scale:
+$black: #111111;
 $gray-darkest: #242424;
 $gray-dark: #55595c;
 $gray: #818a91;
@@ -15,15 +16,20 @@ $brand-red: #f13c20;
 $brand-blue: #4056a1;
 $brand-blue-light: #c5cbe3;
 $brand-gold: #d79922;
-$brand-white: #efe2ba;
+$brand-white: #ece7d6;
 
 // Then map those brand colors to the primary design elements:
 $bg-color: $brand-white;
 $bg-color-code: $sharp-white;
 $text-color: $gray-darkest;
+$link-color: $brand-gold;
 $brand-color-primary: $brand-gold;
+$brand-color-primary-text-color: $black;
+$brand-color-primary-link-color: $brand-white;
 
-// These are auto-generated color skews, you probably won't
+// This is an auto-generated color skew, you probably won't
 // need to change them. If you do, be sure to make sure the
 // color contrasts are within safe accessibility ranges.
 $brand-color-primary-offset: darken($brand-color-primary, 6%);
+$link-color-offset: darken($link-color, 8%);
+$brand-color-primary-link-color-offset: darken($brand-color-primary-link-color, 12%);
