@@ -4,6 +4,21 @@ This is the default template recommended by [An11ty](https://www.npmjs.com/packa
 
 The behaviour of `an11ty` is to overwrite template files with your files, instead of merging them. That can be a bit of a hassle if you aren't careful, so this default site has a lot of functionality packed in that you can extend it in many ways without needing to overwrite files.
 
+## Example Files
+
+Inside the folder `src/_src/_examples` you will find a handful of example
+files--markdown, images, etc.
+
+To keep these example files from building, you will want to add this line
+to the `.an11ty-eleventyignore` file:
+
+```
+_src/_examples
+```
+
+In addition, you will want to look in the `_data/metadata.js` file
+and make sure the property `renderExampleContent` is `false` or removed.
+
 ## Extending `.eleventy.js`
 
 Instead of rewriting the `.eleventy.js` configuration file, name your file `.an11ty.js` and it will be run like the normal 11ty configuration file, *after* the base one is run. (If you need it to run before, name it `.an11ty-before.js` instead. Or do both.)

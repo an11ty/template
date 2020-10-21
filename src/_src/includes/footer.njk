@@ -2,7 +2,7 @@
 	<div class="container">
 		{% include "custom/footer-before.njk" %}
 		<p class="copyright">
-			{{ metadata.title }}
+			{{ metadata.author.name or metadata.title }}
 			&copy;
 			Copyright
 			{{ build.timestamp | dateToFormat('yyyy') }}
